@@ -46,7 +46,7 @@ export default function Welcome() {
           className={`${s.greeting__image} animate__animated  animate__zoomIn animate__delay-2s`}
         >
           <Image
-            src="../../../assets/hand.png"
+            src="/hand.png"
             fill
             alt="Эмодзи Рука"
             quality={100}
@@ -72,7 +72,7 @@ export default function Welcome() {
             target="__blank"
           >
             <Image
-              src={"../../../assets/telegram-black.png"}
+              src={"/telegram-black.png"}
               fill
               alt="Телеграм"
               quality={100}
