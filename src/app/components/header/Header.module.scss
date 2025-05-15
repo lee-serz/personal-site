@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40px;
+  &__logo {
+    position: relative;
+    height: 40px;
+    width: auto;
+    img {
+      width: auto;
+      height: auto;
+    }
+  }
+  &__contact {
+    .header__button {
+      outline: none;
+      background-color: #fff;
+      border: 1px solid #000;
+      padding: 8px 30px;
+      border-radius: 20px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+  }
+}
