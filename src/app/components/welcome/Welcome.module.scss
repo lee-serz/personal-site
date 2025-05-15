@@ -6,7 +6,7 @@
     align-items: flex-end;
     gap: 12px;
     &__text {
-      font-size: 48;
+      font-size: 48px;
       font-weight: 600;
       line-height: 1;
     }
@@ -66,6 +66,9 @@
 }
 
 @media (max-width: 768px) {
+  .welcome {
+    padding-top: 100px;
+  }
   .break::before {
     content: "\A";
     white-space: pre;
