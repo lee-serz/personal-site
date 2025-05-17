@@ -1,9 +1,13 @@
+@import "../../anim.scss";
+
 .welcome {
   padding-top: 170px;
   .greeting {
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    animation: slideRight 1.5s ease-out;
+    will-change: transform;
     gap: 12px;
     &__text {
       font-size: 48px;
@@ -14,9 +18,14 @@
       position: relative;
       height: 63px;
       width: 63px;
+
       img {
         width: auto;
         height: auto;
+        object-fit: contain;
+        opacity: 0;
+        animation: handWave 1s ease-out 1.5s forwards;
+        will-change: transform, opacity;
       }
     }
   }
@@ -29,13 +38,17 @@
 
     padding-top: 55px;
     font-size: 32px;
+
     &__text {
       text-align: center;
       line-height: 1.5;
+      transform: scale(0);
+      animation: shake 2.2s ease-out 2.5s forwards;
     }
+
     &__bold,
-    &__highlight {
-      font-weight: 800;
+    .highlight__text {
+      font-weight: 900;
     }
     &__highlight {
       background-color: #000;
@@ -45,33 +58,40 @@
       margin-left: 10px;
     }
     .info__telegram {
+      position: relative;
       height: 63px;
       width: 63px;
       opacity: 1;
       transition: opacity 0.3s ease-in-out;
+      transform: scale(0);
+      animation: flip 1.5s ease-in 6s forwards;
+      transform-style: preserve-3d;
+      backface-visibility: #000;
+      will-change: transform;
+
       &:hover {
-        opacity: 0.9;
+        opacity: 0.5;
       }
-      &__link {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        img {
-          width: auto;
-          height: auto;
-        }
+      img {
+        width: auto;
+        height: auto;
       }
     }
   }
 }
 
-@media (max-width: 768px) {
+.break::before {
+  content: "\A";
+  white-space: pre;
+}
+
+@media (max-width: 1024px) {
   .welcome {
     padding-top: 100px;
   }
   .break::before {
-    content: "\A";
-    white-space: pre;
+    content: "";
+    white-space: normal;
   }
   .info__highlight {
     font-size: 32px;
@@ -79,6 +99,9 @@
   .info__text {
     font-size: 36px;
     line-height: 1;
+  }
+  .mobile__span {
+    display: block;
   }
 }
 

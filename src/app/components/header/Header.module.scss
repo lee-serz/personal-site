@@ -1,3 +1,5 @@
+@import "../../anim";
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -6,6 +8,9 @@
     position: relative;
     height: 40px;
     width: auto;
+    opacity: 0;
+    animation: slideLeft 1.5s 4s forwards;
+    will-change: transform;
     img {
       width: auto;
       height: auto;
@@ -22,6 +27,8 @@
       letter-spacing: 1px;
       cursor: pointer;
       color: #000;
+      transform: scale(0);
+      animation: slideRight 1.5s 5s forwards;
     }
   }
 }
