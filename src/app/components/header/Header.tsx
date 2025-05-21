@@ -17,7 +17,11 @@ export default function Header() {
     <>
       {isOpenForm ? (
         <QueryClientProvider client={queryClient}>
-          <Form onClose={() => setIsOpenForm(false)} />
+          <Form
+            onClose={() => {
+              setIsOpenForm(false);
+            }}
+          />
         </QueryClientProvider>
       ) : (
         ""

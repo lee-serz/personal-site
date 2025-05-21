@@ -41,17 +41,27 @@ export default function Form({ onClose }: { onClose: () => void }) {
     <div className={s.overlay} onClick={onClose}>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className={s.form}
+        className={`${s.form} `}
         onClick={(e) => e.stopPropagation()}
       >
         <button type="button" onClick={onClose} className={s.close}>
           ×
         </button>
 
-        <input {...register("name")} type="text" placeholder="Ваше имя *" />
+        <input
+          {...register("name", { required: true, minLength: 1 })}
+          aria-invalid={errors.name ? "true" : "false"}
+          type="text"
+          placeholder="Ваше имя *"
+        />
 
         <input
-          {...register("email", {})}
+          {...register("email", {
+            required: true,
+            minLength: 1,
+            pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+          })}
+          aria-invalid={errors.email ? "true" : "false"}
           type="email"
           placeholder="Ваш email *"
         />
@@ -59,7 +69,8 @@ export default function Form({ onClose }: { onClose: () => void }) {
         <input {...register("site")} placeholder="Ваш сайт (необязательно)" />
 
         <textarea
-          {...register("message", {})}
+          {...register("message", { required: true, minLength: 10 })}
+          aria-invalid={errors.message ? "true" : "false"}
           placeholder="Ваше сообщение *"
           rows={4}
         />
